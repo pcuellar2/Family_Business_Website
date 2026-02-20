@@ -788,6 +788,87 @@
             color: var(--primary-orange);
         }
 
+        /* Catering CTA Strip */
+        .catering-cta {
+            padding: 60px 50px;
+            background: var(--dark-olive);
+            text-align: center;
+            color: white;
+        }
+
+        .catering-cta-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.85);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 14px;
+        }
+
+        .catering-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .catering-cta h2 span { color: var(--primary-orange); }
+
+        .catering-cta p {
+            font-size: 14px;
+            opacity: 0.75;
+            max-width: 430px;
+            margin: 0 auto 28px;
+            line-height: 1.7;
+        }
+
+        .catering-cta-btns {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .catering-cta .order-btn {
+            background: var(--primary-orange);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .catering-cta .order-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(232,106,51,0.5);
+        }
+
+        .catering-cta .outline-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.4);
+            padding: 14px 26px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .catering-cta .outline-btn:hover {
+            border-color: white;
+            background: rgba(255,255,255,0.08);
+        }
+
         /* Footer */
         footer {
             background: #3A3A1E;
@@ -915,6 +996,10 @@
             .section-title { font-size: 26px; }
             .section-tag { font-size: 11px; }
 
+            /* Catering CTA */
+            .catering-cta { padding: 44px 18px; }
+            .catering-cta h2 { font-size: 26px; }
+
             /* Footer */
             footer { padding: 24px 18px; font-size: 13px; }
         }
@@ -936,6 +1021,7 @@
             <nav>
                 <a href="#menu">Menú</a>
                 <a href="#combos">Combos</a>
+                <a href="catering.html">Catering</a>
                 <a href="#info">Contacto</a>
             </nav>
             <div class="header-right">
@@ -1550,6 +1636,17 @@
                 </div>
             </div>
 
+        </section>
+
+        <!-- Catering CTA -->
+        <section class="catering-cta">
+            <div class="catering-cta-tag">🎉 Fiestas Gisa</div>
+            <h2>¿Tienes un <span>evento?</span></h2>
+            <p>Llevamos los hot dogs, hamburguesas y tacos a tu fiesta. Paquetes para 30 hasta 150 personas con todo incluido.</p>
+            <div class="catering-cta-btns">
+                <a href="catering.html" class="order-btn">Ver Catering</a>
+                <a href="tel:6565897227" class="outline-btn">Cotizar Ahora</a>
+            </div>
         </section>
 
         <!-- Información / Contacto -->

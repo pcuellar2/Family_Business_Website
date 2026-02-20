@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catering – Antojitos Gisa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        :root {
+            --primary-orange: #E86A33;
+            --dark-olive: #5A5A32;
+            --cream-bg: #F5F3EE;
+            --light-cream: #FAF9F6;
+            --text-dark: #2D2D2D;
+            --text-gray: #6B6B6B;
+            --star-yellow: #FFB800;
+            --accent-green: #7A8A5A;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-cream);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* ── Header ── */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: var(--light-cream);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 1px 10px rgba(0,0,0,0.06);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+        .logo-icon { width: 28px; height: 28px; }
+        .logo-icon svg { fill: var(--primary-orange); }
+
+        nav { display: flex; gap: 35px; }
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--primary-orange); }
+        nav a.active { color: var(--primary-orange); font-weight: 600; }
+
+        .header-right { display: flex; align-items: center; gap: 20px; }
+        .phone-display {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .phone-display svg { width: 18px; height: 18px; fill: var(--primary-orange); }
+
+        .call-btn {
+            background: var(--primary-orange);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .call-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(232,106,51,0.4);
+        }
+
+        /* ── Shared Buttons ── */
+        .order-btn {
+            background: var(--primary-orange);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-family: inherit;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .order-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(232,106,51,0.4);
+        }
+
+        .outline-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: transparent;
+            color: var(--text-dark);
+            border: 1px solid var(--text-dark);
+            padding: 14px 26px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        .outline-btn:hover {
+            background: var(--primary-orange);
+            border-color: var(--primary-orange);
+            color: white;
+        }
+
+        /* ── Section Tags ── */
+        .section-tag {
+            display: inline-block;
+            background: rgba(232,106,51,0.1);
+            color: var(--primary-orange);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        /* ── Catering Hero ── */
+        .catering-hero {
+            padding: 70px 50px;
+            background: var(--cream-bg);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .catering-hero::before {
+            content: '';
+            position: absolute;
+            top: -80px; right: -80px;
+            width: 320px; height: 320px;
+            background: rgba(232,106,51,0.07);
+            border-radius: 50%;
+        }
+        .catering-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -60px; left: -60px;
+            width: 220px; height: 220px;
+            background: rgba(90,90,50,0.05);
+            border-radius: 50%;
+        }
+        .catering-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+        .catering-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 50px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin: 14px 0 18px;
+        }
+        .catering-hero h1 .highlight { color: var(--primary-orange); }
+        .catering-hero p {
+            color: var(--text-gray);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+        .catering-hero-btns {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ── Catering Sections ── */
+        .catering-section {
+            padding: 70px 50px;
+            background: white;
+        }
+        .catering-section.alt {
+            background: var(--light-cream);
+        }
+        .catering-inner {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* Photo + intro block */
+        .catering-block {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 44px;
+            align-items: start;
+            margin-bottom: 38px;
+        }
+        .catering-block-img {
+            height: 310px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        .catering-block-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .catering-block-content { padding-top: 6px; }
+
+        .catering-category-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(232,106,51,0.1);
+            color: var(--primary-orange);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+        }
+        .catering-block-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .catering-block-content p {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+        .catering-note {
+            background: rgba(232,106,51,0.07);
+            border-left: 3px solid var(--primary-orange);
+            border-radius: 0 10px 10px 0;
+            padding: 12px 16px;
+            font-size: 13px;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+        .catering-note strong { color: var(--primary-orange); }
+
+        /* ── Package Pricing ── */
+        .packages-label {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .packages-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--primary-orange), transparent);
+        }
+
+        /* Simple packages (Hot Dogs + Burgers) — 4 cols */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+        .package-card {
+            background: var(--cream-bg);
+            border-radius: 16px;
+            padding: 24px 14px;
+            text-align: center;
+            border: 1px solid #EAEAEA;
+            transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+        }
+        .package-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.09);
+            border-color: var(--primary-orange);
+        }
+        .package-qty {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .package-unit {
+            font-size: 11px;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+        .package-price {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--primary-orange);
+        }
+
+        /* Taco packages — 2×2 with sub-options */
+        .packages-grid-tacos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+        .taco-pkg-card {
+            background: var(--cream-bg);
+            border-radius: 16px;
+            padding: 20px 18px;
+            border: 1px solid #EAEAEA;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .taco-pkg-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+        .taco-pkg-header {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #DCDCDC;
+        }
+        .pkg-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 7px 0;
+        }
+        .pkg-option + .pkg-option { border-top: 1px solid #EFEFEF; }
+        .pkg-type { font-size: 13px; color: var(--text-gray); font-weight: 500; }
+        .pkg-price-sm { font-size: 15px; font-weight: 700; color: var(--primary-orange); }
+        .pkg-note-extra {
+            font-size: 11px;
+            color: var(--accent-green);
+            font-weight: 600;
+            margin-top: 10px;
+            padding-top: 8px;
+            border-top: 1px solid #E0E0E0;
+            text-align: center;
+        }
+
+        /* ── Includes ── */
+        .includes-section {
+            background: var(--cream-bg);
+            border-radius: 16px;
+            padding: 20px 22px;
+        }
+        .includes-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--text-dark);
+            margin-bottom: 14px;
+        }
+        .includes-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .include-chip {
+            background: white;
+            border: 1px solid #E2E2E2;
+            border-radius: 20px;
+            padding: 5px 12px;
+            font-size: 12px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .include-chip::before {
+            content: '✓';
+            color: var(--accent-green);
+            font-weight: 800;
+            font-size: 10px;
+        }
+
+        /* ── Info / Contact ── */
+        .info-section {
+            padding: 60px 50px;
+            background: var(--dark-olive);
+            color: white;
+        }
+        .info-title { text-align: center; margin-bottom: 40px; }
+        .info-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: white;
+            margin-bottom: 8px;
+        }
+        .info-title p { font-size: 14px; opacity: 0.7; }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .info-card { text-align: center; }
+        .info-icon {
+            width: 50px; height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+        .info-icon svg { width: 24px; height: 24px; fill: var(--primary-orange); }
+        .info-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+        .info-card p { font-size: 14px; opacity: 0.8; line-height: 1.7; }
+        .info-card a { color: var(--primary-orange); text-decoration: none; font-weight: 600; }
+
+        /* ── Footer ── */
+        footer {
+            background: #3A3A1E;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            /* Header */
+            header { padding: 14px 18px; }
+            nav { display: none; }
+            .phone-display { display: none; }
+            .logo { font-size: 18px; }
+
+            /* Hero */
+            .catering-hero { padding: 44px 18px 50px; }
+            .catering-hero h1 { font-size: 34px; }
+            .catering-hero p { font-size: 14px; }
+
+            /* Catering sections */
+            .catering-section { padding: 40px 18px; }
+            .catering-block {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+            .catering-block-img {
+                height: 260px;
+                order: -1;
+            }
+            .catering-block-content { order: 0; }
+            .catering-block-content h2 { font-size: 26px; }
+
+            /* Package cards */
+            .packages-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .package-qty { font-size: 30px; }
+            .package-price { font-size: 22px; }
+
+            /* Taco cards */
+            .packages-grid-tacos {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .taco-pkg-header { font-size: 18px; }
+
+            /* Info section */
+            .info-section { padding: 36px 18px; }
+            .info-grid { grid-template-columns: 1fr; gap: 16px; }
+            .info-card { padding: 18px; }
+
+            /* Footer */
+            footer { padding: 24px 18px; }
+        }
+    </style>
+</head>
+<body>
+<main>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05l-5 2.5-1.5-3-4.5 2.25-4.5-2.25-1.5 3-5-2.5 1.66 16.46c.09.84.79 1.48 1.63 1.48h13.27zM12 18c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg>
+            </div>
+            Antojitos Gisa
+        </a>
+        <nav>
+            <a href="index.html#menu">Menú</a>
+            <a href="catering.html" class="active">Catering</a>
+            <a href="index.html#info">Contacto</a>
+        </nav>
+        <div class="header-right">
+            <div class="phone-display">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                656-589-7227
+            </div>
+            <a href="tel:6565897227" class="call-btn">Llámanos</a>
+        </div>
+    </header>
+
+    <!-- Catering Hero -->
+    <section class="catering-hero">
+        <div class="catering-hero-inner">
+            <div class="section-tag">🎉 Fiestas Gisa · Catering</div>
+            <h1>Tu Fiesta,<br><span class="highlight">Nuestra Especialidad</span></h1>
+            <p>Llevamos la experiencia de Antojitos Gisa a tu evento. Hot dogs, hamburguesas y tacos para 30 hasta 150 personas. Todo incluido, sin complicaciones.</p>
+            <div class="catering-hero-btns">
+                <a href="tel:6565897227" class="order-btn">📞 Cotizar Ahora</a>
+                <a href="#hotdogs" class="outline-btn">Ver Paquetes</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── HOT DOGS CATERING ── -->
+    <section class="catering-section" id="hotdogs">
+        <div class="catering-inner">
+
+            <div class="catering-block">
+                <div class="catering-block-content">
+                    <span class="catering-category-badge">🌭 Hot Dogs</span>
+                    <h2>Hot Dogs Catering</h2>
+                    <p>Smoked-Polish Sausage en pan estilo baguette, con todos los acompañamientos para dejar a tus invitados con las manos limpias y el estómago lleno.</p>
+                    <div class="catering-note">
+                        <strong>Nota:</strong> Pídalos con papas fritas — precio por separado.
+                    </div>
+                </div>
+                <div class="catering-block-img">
+                    <img src="hot-dog-catering.jpeg" alt="Hot Dogs Catering"
+                         style="object-position: center 30%;">
+                </div>
+            </div>
+
+            <div class="packages-label">Paquetes</div>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-qty">30</div>
+                    <div class="package-unit">Hot Dogs</div>
+                    <div class="package-price">$2,250</div>
+                </div>
+                <div class="package-card">
+                    <div class="package-qty">50</div>
+                    <div class="package-unit">Hot Dogs</div>
+                    <div class="package-price">$3,500</div>
+                </div>
+                <div class="package-card">
+                    <div class="package-qty">70</div>
+                    <div class="package-unit">Hot Dogs</div>
+                    <div class="package-price">$4,875</div>
+                </div>
+                <div class="package-card">
+                    <div class="package-qty">100</div>
+                    <div class="package-unit">Hot Dogs</div>
+                    <div class="package-price">$6,000</div>
+                </div>
+            </div>
+
+            <div class="includes-section">
+                <div class="includes-title">✦ Incluye</div>
+                <div class="includes-chips">
+                    <span class="include-chip">Desechables</span>
+                    <span class="include-chip">Servilletas</span>
+                    <span class="include-chip">Chile Marinado</span>
+                    <span class="include-chip">Chile Curtidos</span>
+                    <span class="include-chip">Tomate</span>
+                    <span class="include-chip">Cebolla</span>
+                    <span class="include-chip">Queso para Nachos</span>
+                    <span class="include-chip">Frijoles Refritos</span>
+                    <span class="include-chip">Pan Estilo Baguette</span>
+                    <span class="include-chip">Mostaza</span>
+                    <span class="include-chip">Mahonesa</span>
+                    <span class="include-chip">Ketchup</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ── BURGERS CATERING ── -->
+    <section class="catering-section alt" id="burgers">
+        <div class="catering-inner">
+
+            <div class="catering-block">
+                <div class="catering-block-content">
+                    <span class="catering-category-badge">🍔 Hamburguesas</span>
+                    <h2>Burgers Catering</h2>
+                    <p>Hamburguesas a la plancha con carne 100% res y queso amarillo fundido, acompañadas de todos los condimentos. La elección clásica para cualquier celebración.</p>
+                    <div class="catering-note">
+                        <strong>Nota:</strong> Pídalas con papas fritas — precio por separado.
+                    </div>
+                </div>
+                <div class="catering-block-img">
+                    <img src="burger-catering.jpeg" alt="Burgers Catering"
+                         style="object-position: center 45%;">
+                </div>
+            </div>
+
+            <div class="packages-label">Paquetes</div>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-qty">30</div>
+                    <div class="package-unit">Burgers</div>
+                    <div class="package-price">$1,700</div>
+                </div>
+                <div class="package-card">
+                    <div class="package-qty">50</div>
+                    <div class="package-unit">Burgers</div>
+                    <div class="package-price">$2,650</div>
+                </div>
+                <div class="package-card">
+                    <div class="package-qty">70</div>
+                    <div class="package-unit">Burgers</div>
+                    <div class="package-price">$3,500</div>
+                </div>
+                <div class="package-card">
+                    <div class="package-qty">100</div>
+                    <div class="package-unit">Burgers</div>
+                    <div class="package-price">$4,900</div>
+                </div>
+            </div>
+
+            <div class="includes-section">
+                <div class="includes-title">✦ Incluye</div>
+                <div class="includes-chips">
+                    <span class="include-chip">Desechables</span>
+                    <span class="include-chip">Servilletas</span>
+                    <span class="include-chip">Chile Mrindo</span>
+                    <span class="include-chip">Chile Toreado</span>
+                    <span class="include-chip">Chiles Curtidos</span>
+                    <span class="include-chip">Tomate</span>
+                    <span class="include-chip">Cebolla</span>
+                    <span class="include-chip">Lechuga</span>
+                    <span class="include-chip">Queso Amarillo</span>
+                    <span class="include-chip">Mostaza</span>
+                    <span class="include-chip">Mayonesa</span>
+                    <span class="include-chip">Ketchup</span>
+                    <span class="include-chip">Pan Bimbo</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ── TACOS CATERING ── -->
+    <section class="catering-section" id="tacos">
+        <div class="catering-inner">
+
+            <div class="catering-block">
+                <div class="catering-block-content">
+                    <span class="catering-category-badge">🌮 Tacos</span>
+                    <h2>Tacos Catering</h2>
+                    <p>Bistec o Pastor preparados al momento para tu evento. Elige tu carne favorita o pide la combinada. Desde 50 hasta 150 personas con todo incluido.</p>
+                </div>
+                <div class="catering-block-img">
+                    <img src="taco-catering.jpeg" alt="Tacos Catering"
+                         style="object-position: center 35%;">
+                </div>
+            </div>
+
+            <div class="packages-label">Paquetes — Bistec o Pastor</div>
+            <div class="packages-grid-tacos">
+
+                <div class="taco-pkg-card">
+                    <div class="taco-pkg-header">50 Personas</div>
+                    <div class="pkg-option">
+                        <span class="pkg-type">Pastor</span>
+                        <span class="pkg-price-sm">$2,500</span>
+                    </div>
+                    <div class="pkg-option">
+                        <span class="pkg-type">Bistec</span>
+                        <span class="pkg-price-sm">$2,800</span>
+                    </div>
+                    <div class="pkg-option">
+                        <span class="pkg-type">Combinada</span>
+                        <span class="pkg-price-sm">$3,100</span>
+                    </div>
+                    <div class="pkg-note-extra">🥤 + Vitrolero de agua fresca</div>
+                </div>
+
+                <div class="taco-pkg-card">
+                    <div class="taco-pkg-header">75 Personas</div>
+                    <div class="pkg-option">
+                        <span class="pkg-type">Pastor</span>
+                        <span class="pkg-price-sm">$3,800</span>
+                    </div>
+                    <div class="pkg-option">
+                        <span class="pkg-type">Bistec</span>
+                        <span class="pkg-price-sm">$4,100</span>
+                    </div>
+                    <div class="pkg-option">
+                        <span class="pkg-type">Combinada</span>
+                        <span class="pkg-price-sm">$4,300</span>
+                    </div>
+                    <div class="pkg-note-extra">🥤 + Vitrolero de agua fresca</div>
+                </div>
+
+                <div class="taco-pkg-card">
+                    <div class="taco-pkg-header">100 Personas</div>
+                    <div class="pkg-option">
+                        <span class="pkg-type">Pastor</span>
+                        <span class="pkg-price-sm">$4,900</span>
+                    </div>
+                    <div class="pkg-option">
+                        <span class="pkg-type">Bistec</span>
+                        <span class="pkg-price-sm">$5,400</span>
+                    </div>
+                    <div class="pkg-option">
+                        <span class="pkg-type">Combinada</span>
+                        <span class="pkg-price-sm">$5,600</span>
+                    </div>
+                    <div class="pkg-note-extra">🫘 + 25 Frijoles Charros · 🥤 Vitrolero</div>
+                </div>
+
+                <div class="taco-pkg-card">
+                    <div class="taco-pkg-header">150 Personas</div>
+                    <div class="pkg-option">
+                        <span class="pkg-type">Pastor</span>
+                        <span class="pkg-price-sm">$7,200</span>
+                    </div>
+                    <div class="pkg-option">
+                        <span class="pkg-type">Bistec</span>
+                        <span class="pkg-price-sm">$8,000</span>
+                    </div>
+                    <div class="pkg-option">
+                        <span class="pkg-type">Combinada</span>
+                        <span class="pkg-price-sm">$8,200</span>
+                    </div>
+                    <div class="pkg-note-extra">🫘 + 25 Frijoles Charros · 🥤 Vitrolero</div>
+                </div>
+
+            </div>
+
+            <div class="includes-section">
+                <div class="includes-title">✦ Incluye</div>
+                <div class="includes-chips">
+                    <span class="include-chip">Desechables</span>
+                    <span class="include-chip">Servilletas</span>
+                    <span class="include-chip">Salsa Roja</span>
+                    <span class="include-chip">Salsa Verde</span>
+                    <span class="include-chip">Guacamole</span>
+                    <span class="include-chip">Pico de Gallo</span>
+                    <span class="include-chip">Cebolla Marinada</span>
+                    <span class="include-chip">Piña (si es Pastor)</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Info / Contact -->
+    <section class="info-section" id="info">
+        <div class="info-title">
+            <h2>Contáctanos</h2>
+            <p>Cotiza tu evento sin compromiso</p>
+        </div>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                </div>
+                <h3>Dirección</h3>
+                <p>826 Saltillo<br>Col. Ex Hipódromo<br>Entre 2 de Abril y Plan de Ayala</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                </div>
+                <h3>Teléfono</h3>
+                <p><a href="tel:6565897227">656-589-7227</a></p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">
+                    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                </div>
+                <h3>Horario</h3>
+                <p>Jueves a Domingo<br>4:00 PM – 10:00 PM</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p style="margin-bottom:8px; font-size:14px; opacity:0.95;">🏠 Contamos con local establecido</p>
+        <p style="margin-bottom:10px; font-size:13px; opacity:0.9;">
+            📲 Encuéntranos en Rappi como
+            <strong style="color:#FF6B35;">antojitos gisa</strong>
+        </p>
+        <p>© <span id="year"></span> Antojitos Gisa &nbsp;·&nbsp; Todos los precios en pesos mexicanos (MXN)</p>
+    </footer>
+
+</main>
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
