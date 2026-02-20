@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antojitos Gisa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-orange: #E86A33;
+            --dark-olive: #5A5A32;
+            --cream-bg: #F5F3EE;
+            --light-cream: #FAF9F6;
+            --text-dark: #2D2D2D;
+            --text-gray: #6B6B6B;
+            --star-yellow: #FFB800;
+            --accent-green: #7A8A5A;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-cream);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 0;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: var(--light-cream);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 1px 10px rgba(0,0,0,0.06);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+        }
+
+        .logo-icon svg {
+            fill: var(--primary-orange);
+        }
+
+        nav {
+            display: flex;
+            gap: 35px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-orange);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .phone-display {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .phone-display svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--primary-orange);
+        }
+
+        .call-btn {
+            background: var(--primary-orange);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .call-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(232, 106, 51, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 40px 50px 60px;
+            gap: 40px;
+            position: relative;
+        }
+
+        .hero-left {
+            padding-top: 40px;
+        }
+
+        .hours-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            border: 1px solid #E8E8E8;
+            border-radius: 25px;
+            padding: 8px 18px;
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .hours-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: #22C55E;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-title .highlight {
+            color: var(--primary-orange);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-subtitle {
+            color: var(--text-gray);
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            max-width: 380px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .order-btn {
+            background: var(--primary-orange);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .order-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(232, 106, 51, 0.4);
+        }
+
+        .info-btn {
+            background: white;
+            color: var(--text-dark);
+            border: 1px solid #E0E0E0;
+            padding: 14px 25px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .info-btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-orange);
+        }
+
+        .info-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Hero Right */
+        .hero-right {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 450px;
+        }
+
+        .circle-decoration {
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 350px;
+            height: 350px;
+        }
+
+        .circle-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px dashed var(--primary-orange);
+            opacity: 0.3;
+        }
+
+        .circle-ring-1 { width: 100%; height: 100%; top: 0; left: 0; }
+        .circle-ring-2 { width: 80%; height: 80%; top: 10%; left: 10%; }
+        .circle-ring-3 { width: 60%; height: 60%; top: 20%; left: 20%; }
+
+        .floating-ingredient {
+            position: absolute;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .ingredient-tomato  { top: 20%; right: 15%; width: 60px; animation-delay: 0s; }
+        .ingredient-lettuce { top: 35%; right: 5%;  width: 70px; animation-delay: 0.5s; }
+        .ingredient-cheese  { top: 55%; right: 10%; width: 50px; animation-delay: 1s; }
+        .ingredient-bun     { top: 10%; right: 35%; width: 80px; animation-delay: 1.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50%       { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        .product-card {
+            position: absolute;
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 20;
+        }
+
+        .product-card-top    { top: 5%;  left: 45%; }
+        .product-card-bottom { bottom: 15%; right: 5%; }
+
+        .product-card-info h4        { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+        .product-card-info .badge    { font-size: 11px; color: var(--text-gray); display: flex; gap: 5px; align-items: center; }
+        .product-card-info .badge svg { width: 11px; height: 11px; fill: var(--star-yellow); }
+        .product-card-info .price    { font-size: 16px; font-weight: 700; color: var(--primary-orange); }
+
+        .main-burger {
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            width: 320px;
+            z-index: 10;
+        }
+
+        .star { position: absolute; color: var(--star-yellow); font-size: 24px; }
+        .star-1 { top: 100px; left: 30px; }
+        .star-2 { top: 250px; left: 10px; }
+        .star-3 { bottom: 100px; left: 50px; }
+
+        /* Categories Section */
+        .categories {
+            padding: 30px 50px;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            background: var(--light-cream);
+        }
+
+        .category-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            padding: 13px 22px;
+            border-radius: 12px;
+            border: 1px solid #E8E8E8;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        .category-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-color: var(--primary-orange);
+        }
+
+        .category-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; }
+        .category-icon svg { width: 100%; height: 100%; }
+        .category-item span { font-size: 14px; font-weight: 500; }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(232, 106, 51, 0.1);
+            color: var(--primary-orange);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        /* Lo Más Pedido */
+        .top-sellers {
+            padding: 60px 50px;
+            background: white;
+        }
+
+        .sellers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .seller-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .seller-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 150px;
+            background: var(--cream-bg);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .seller-image {
+            position: relative;
+            z-index: 1;
+            width: 180px;
+            height: 130px;
+            margin: 0 auto 20px;
+        }
+
+        .seller-image svg { width: 100%; height: 100%; }
+
+        .seller-image-photo {
+            width: 200px !important;
+            height: 220px !important;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .seller-image-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .seller-rating { display: flex; justify-content: center; gap: 3px; margin-bottom: 10px; }
+        .seller-rating svg { width: 14px; height: 14px; fill: var(--star-yellow); }
+
+        .seller-name { font-size: 18px; font-weight: 600; margin-bottom: 5px; }
+        .seller-desc { font-size: 13px; color: var(--text-gray); margin-bottom: 15px; }
+
+        .seller-bottom {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .seller-price { font-size: 22px; font-weight: 700; color: var(--primary-orange); }
+
+        .seller-order-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: transparent;
+            color: var(--text-dark);
+            border: 1px solid var(--text-dark);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            line-height: normal;
+            font-family: inherit;
+        }
+
+        .seller-order-btn:hover {
+            background: var(--primary-orange);
+            border-color: var(--primary-orange);
+            color: white;
+        }
+
+        /* Menú Completo */
+        .menu-section {
+            padding: 60px 50px;
+            background: white;
+        }
+
+        .menu-category-block {
+            margin-bottom: 55px;
+        }
+
+        .menu-category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .menu-category-icon { font-size: 26px; }
+
+        .menu-category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            white-space: nowrap;
+        }
+
+        .menu-category-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--primary-orange), transparent);
+        }
+
+        /* Illustrated Menu Grid */
+        .menu-illustrated-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-card {
+            text-align: center;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .menu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 130px;
+            height: 130px;
+            background: var(--cream-bg);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .menu-card-image {
+            position: relative;
+            z-index: 1;
+            width: 160px;
+            height: 115px;
+            margin: 0 auto 14px;
+        }
+
+        .menu-card-image svg { width: 100%; height: 100%; }
+
+        .menu-card-photo-container {
+            position: relative;
+            z-index: 1;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 14px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .menu-card-photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .menu-card-name {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+
+        .menu-card-desc {
+            font-size: 11px;
+            color: var(--text-gray);
+            margin-bottom: 12px;
+            line-height: 1.4;
+            min-height: 28px;
+        }
+
+        .menu-card-bottom {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .menu-card-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-orange);
+        }
+
+        /* Info / Contacto */
+        .info-section {
+            padding: 60px 50px;
+            background: var(--dark-olive);
+            color: white;
+        }
+
+        .info-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .info-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .info-title p { font-size: 14px; opacity: 0.7; }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .info-card { text-align: center; }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+
+        .info-icon svg { width: 24px; height: 24px; fill: var(--primary-orange); }
+        .info-card h3  { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+        .info-card p   { font-size: 14px; opacity: 0.8; line-height: 1.7; }
+        .info-card a   { color: var(--primary-orange); text-decoration: none; font-weight: 600; }
+
+        /* Postre Destacado */
+        .postre-featured {
+            display: flex;
+            justify-content: center;
+        }
+
+        .postre-card {
+            text-align: center;
+            position: relative;
+            max-width: 340px;
+            width: 100%;
+        }
+
+        .postre-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 220px;
+            height: 220px;
+            background: var(--cream-bg);
+            border-radius: 50%;
+            z-index: 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .postre-img-wrap {
+            position: relative;
+            z-index: 1;
+            width: 220px;
+            height: 200px;
+            margin: 0 auto 20px;
+        }
+
+        .postre-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: url(#remove-black);
+        }
+
+        /* Hot Dog Hero Card */
+        .hotdog-hero {
+            display: flex;
+            align-items: stretch;
+            background: white;
+            border-radius: 20px;
+            border: 1px solid rgba(232,106,51,0.18);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+            overflow: hidden;
+            margin-bottom: 14px;
+        }
+
+        .hotdog-hero-img {
+            width: 220px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .hotdog-hero-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 70%;
+        }
+
+        .hotdog-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--primary-orange);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .hotdog-hero-content {
+            flex: 1;
+            padding: 22px 26px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hotdog-hero-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 7px;
+        }
+
+        .hotdog-hero-content p {
+            font-size: 13px;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .hotdog-hero-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Hot Dog compact list item */
+        .hotdog-list-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: white;
+            border-radius: 14px;
+            padding: 14px 20px;
+            box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+        }
+
+        .hotdog-list-icon {
+            width: 46px;
+            height: 46px;
+            background: var(--cream-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .hotdog-list-info { flex: 1; }
+
+        .hotdog-list-info h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+        }
+
+        .hotdog-list-info p {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        .hotdog-list-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .hotdog-list-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-orange);
+        }
+
+        /* Footer */
+        footer {
+            background: #3A3A1E;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: 1fr; }
+            .hero-right { min-height: 400px; }
+            .sellers-grid { grid-template-columns: repeat(2, 1fr); }
+            .info-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            /* Header */
+            header { padding: 14px 18px; flex-wrap: nowrap; gap: 0; }
+            nav { display: none; }
+            .phone-display { display: none; }
+            .logo { font-size: 18px; }
+
+            /* Hero */
+            .hero { padding: 28px 18px 36px; }
+            .hero-title { font-size: 34px; line-height: 1.15; }
+            .hero-subtitle { font-size: 13px; }
+            .hero-right { display: none; }
+            .hero-badge { font-size: 11px; padding: 6px 14px; }
+            .order-btn, .menu-btn { padding: 13px 22px; font-size: 14px; }
+
+            /* Categories — horizontal scroll strip */
+            .categories {
+                padding: 14px 18px;
+                gap: 10px;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            .categories::-webkit-scrollbar { display: none; }
+            .category-item { flex-shrink: 0; }
+            .category-icon { width: 52px; height: 52px; }
+            .category-item span { font-size: 11px; }
+
+            /* Lo Más Pedido */
+            .top-sellers { padding: 36px 18px; }
+            .sellers-grid { grid-template-columns: 1fr; gap: 20px; }
+            .seller-image-photo {
+                width: 100% !important;
+                height: 200px !important;
+                border-radius: 12px !important;
+            }
+            .seller-card { padding-bottom: 4px; }
+            .seller-name { font-size: 16px; }
+            .seller-price { font-size: 20px; }
+            .seller-order-btn { padding: 12px 24px; font-size: 14px; min-height: 44px; }
+
+            /* Menu section */
+            .menu-section { padding: 32px 18px; }
+            .menu-category-title { font-size: 18px; }
+            .menu-illustrated-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 18px;
+            }
+
+            /* Hero food cards (hotdog style) */
+            .hotdog-hero { flex-direction: column; border-radius: 16px; }
+            .hotdog-hero-img { width: 100%; height: 210px; }
+            .hotdog-hero-content { padding: 16px 18px 18px; }
+            .hotdog-hero-content h3 { font-size: 17px; margin-bottom: 5px; }
+            .hotdog-hero-content p { font-size: 12px; margin-bottom: 14px; }
+            .hotdog-hero-badge { font-size: 9px; padding: 3px 9px; }
+            .menu-card-price { font-size: 22px; }
+
+            /* Compact list items */
+            .hotdog-list-item { padding: 13px 16px; border-radius: 12px; }
+            .hotdog-list-icon { width: 42px; height: 42px; font-size: 20px; }
+            .hotdog-list-info h4 { font-size: 14px; }
+            .hotdog-list-info p { font-size: 11px; }
+            .hotdog-list-price { font-size: 16px; }
+            .hotdog-list-right { gap: 8px; }
+
+            /* Info / Contact section */
+            .info-section { padding: 36px 18px; }
+            .info-grid { grid-template-columns: 1fr; gap: 16px; }
+            .info-card { padding: 18px; }
+
+            /* Section headers */
+            .section-title { font-size: 26px; }
+            .section-tag { font-size: 11px; }
+
+            /* Footer */
+            footer { padding: 24px 18px; font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Header -->
+        <header>
+            <a href="#" class="logo" style="text-decoration:none; color:inherit;">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24"><path d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05l-5 2.5-1.5-3-4.5 2.25-4.5-2.25-1.5 3-5-2.5 1.66 16.46c.09.84.79 1.48 1.63 1.48h13.27zM12 18c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg>
+                </div>
+                Antojitos Gisa
+            </a>
+            <nav>
+                <a href="#menu">Menú</a>
+                <a href="#combos">Combos</a>
+                <a href="#info">Contacto</a>
+            </nav>
+            <div class="header-right">
+                <div class="phone-display">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    656-589-7227
+                </div>
+                <a href="tel:6565897227" class="call-btn">Llámanos</a>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="star star-1">✦</div>
+            <div class="star star-2">✦</div>
+            <div class="star star-3">✦</div>
+
+            <div class="hero-left">
+                <div class="hours-badge">
+                    <span class="dot"></span>
+                    Abierto Jue–Dom &nbsp;·&nbsp; 4:00 PM – 10:00 PM
+                </div>
+                <h1 class="hero-title">
+                    Las mejores<br>
+                    <span class="highlight">🍔 hambur­guesas</span><br>
+                    del barrio
+                </h1>
+                <p class="hero-subtitle">
+                    Antojitos Gisa te trae las más deliciosas hamburguesas, hot dogs, boneless y más. Comida preparada con sabor casero, directo a tu paladar. ¡Te esperamos en la Col. Ex Hipódromo!
+                </p>
+                <div class="hero-buttons">
+                    <button class="order-btn" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">Ver Menú</button>
+                    <button class="info-btn" onclick="document.getElementById('info').scrollIntoView({behavior:'smooth'})">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg>
+                        Cómo Llegar
+                    </button>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <!-- Decorative Circles -->
+                <div class="circle-decoration">
+                    <div class="circle-ring circle-ring-1"></div>
+                    <div class="circle-ring circle-ring-2"></div>
+                    <div class="circle-ring circle-ring-3"></div>
+                </div>
+
+                <!-- Main Burger Illustration -->
+                <div class="main-burger">
+                    <svg viewBox="0 0 200 160" style="width: 100%;">
+                        <!-- Bun Top -->
+                        <ellipse cx="100" cy="32" rx="80" ry="28" fill="#D4A574"/>
+                        <ellipse cx="100" cy="30" rx="75" ry="24" fill="#E5B896"/>
+                        <ellipse cx="70" cy="22" rx="4" ry="2" fill="#F5DEB3"/>
+                        <ellipse cx="90" cy="18" rx="4" ry="2" fill="#F5DEB3"/>
+                        <ellipse cx="110" cy="20" rx="4" ry="2" fill="#F5DEB3"/>
+                        <ellipse cx="130" cy="24" rx="4" ry="2" fill="#F5DEB3"/>
+                        <!-- Lettuce -->
+                        <path d="M25 60 Q50 50, 75 60 Q100 52, 125 60 Q150 52, 175 60 L175 66 Q150 58, 125 66 Q100 58, 75 66 Q50 58, 25 66 Z" fill="#228B22"/>
+                        <!-- Tomato -->
+                        <ellipse cx="100" cy="75" rx="75" ry="10" fill="#FF6347"/>
+                        <!-- Cheese -->
+                        <path d="M20 85 L30 100 L180 100 L190 85 Z" fill="#FFD700"/>
+                        <!-- Patty -->
+                        <ellipse cx="100" cy="112" rx="80" ry="15" fill="#8B4513"/>
+                        <ellipse cx="100" cy="108" rx="78" ry="12" fill="#A0522D"/>
+                        <!-- Bun Bottom -->
+                        <ellipse cx="100" cy="138" rx="80" ry="20" fill="#D4A574"/>
+                        <ellipse cx="100" cy="136" rx="78" ry="18" fill="#E5B896"/>
+                    </svg>
+                </div>
+
+                <!-- Floating Ingredients -->
+                <div class="floating-ingredient ingredient-tomato">
+                    <svg viewBox="0 0 50 50" width="60" height="60">
+                        <circle cx="25" cy="28" r="20" fill="#FF6347"/>
+                        <path d="M25 8 Q20 15, 25 18 Q30 15, 25 8" fill="#228B22"/>
+                    </svg>
+                </div>
+                <div class="floating-ingredient ingredient-lettuce">
+                    <svg viewBox="0 0 60 40" width="70" height="50">
+                        <path d="M5 35 Q15 10, 30 20 Q45 5, 55 35 Q45 25, 30 30 Q15 25, 5 35" fill="#228B22"/>
+                    </svg>
+                </div>
+                <div class="floating-ingredient ingredient-cheese">
+                    <svg viewBox="0 0 50 30" width="50" height="30">
+                        <path d="M0 10 L10 30 L50 30 L50 10 Z" fill="#FFD700"/>
+                    </svg>
+                </div>
+                <div class="floating-ingredient ingredient-bun">
+                    <svg viewBox="0 0 60 40" width="80" height="55">
+                        <ellipse cx="30" cy="25" rx="28" ry="15" fill="#D4A574"/>
+                        <ellipse cx="30" cy="22" rx="25" ry="12" fill="#E5B896"/>
+                        <ellipse cx="20" cy="18" rx="3" ry="1.5" fill="#F5DEB3"/>
+                        <ellipse cx="35" cy="16" rx="3" ry="1.5" fill="#F5DEB3"/>
+                    </svg>
+                </div>
+
+                <!-- Featured Product Cards -->
+                <div class="product-card product-card-top">
+                    <div style="width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:34px;">🍗</div>
+                    <div class="product-card-info">
+                        <h4>La Pechugona</h4>
+                        <div class="badge">
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            Pollo Crispy
+                        </div>
+                        <div class="price">$90</div>
+                    </div>
+                </div>
+
+                <div class="product-card product-card-bottom">
+                    <div style="width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:34px;">🎁</div>
+                    <div class="product-card-info">
+                        <h4>Combo Familiar</h4>
+                        <div class="badge">
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            El más popular
+                        </div>
+                        <div class="price">$210</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories">
+            <a href="#burgers" class="category-item">
+                <div class="category-icon">
+                    <svg viewBox="0 0 40 40">
+                        <ellipse cx="20" cy="11" rx="14" ry="6" fill="#D4A574"/>
+                        <rect x="6" y="16" width="28" height="5" rx="1" fill="#228B22"/>
+                        <ellipse cx="20" cy="25" rx="14" ry="4" fill="#8B4513"/>
+                        <ellipse cx="20" cy="32" rx="14" ry="5" fill="#E5B896"/>
+                    </svg>
+                </div>
+                <span>Hamburguesas</span>
+            </a>
+            <a href="#pollo" class="category-item">
+                <div class="category-icon">
+                    <svg viewBox="0 0 40 40">
+                        <path d="M8 30 Q12 18, 22 12 Q30 8, 35 16 Q30 22, 20 26 Q12 28, 8 30" fill="#CC6600"/>
+                        <path d="M14 28 Q18 20, 26 16" stroke="#FF8C00" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <span>Pollo Crispy</span>
+            </a>
+            <a href="#hotdogs" class="category-item">
+                <div class="category-icon">
+                    <svg viewBox="0 0 40 40">
+                        <ellipse cx="20" cy="20" rx="16" ry="10" fill="#E5B896"/>
+                        <ellipse cx="20" cy="20" rx="10" ry="6" fill="#CC4400"/>
+                        <path d="M10 20 Q20 15, 30 20" stroke="#FFD700" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <span>Hot Dogs</span>
+            </a>
+            <a href="#papas" class="category-item">
+                <div class="category-icon">
+                    <svg viewBox="0 0 40 40">
+                        <rect x="12" y="22" width="16" height="14" rx="2" fill="#E86A33"/>
+                        <rect x="14" y="9"  width="3" height="14" rx="1" fill="#FFD700"/>
+                        <rect x="19" y="7"  width="3" height="16" rx="1" fill="#FFD700"/>
+                        <rect x="24" y="10" width="3" height="13" rx="1" fill="#FFD700"/>
+                    </svg>
+                </div>
+                <span>Papas</span>
+            </a>
+            <a href="#combos" class="category-item">
+                <div class="category-icon">
+                    <svg viewBox="0 0 40 40">
+                        <rect x="8" y="18" width="24" height="16" rx="2" fill="#E86A33"/>
+                        <path d="M8 18 L20 11 L32 18" fill="#CC5522"/>
+                        <path d="M20 11 L20 34" stroke="white" stroke-width="1.5" fill="none"/>
+                        <path d="M13 14 Q20 19, 27 14" stroke="white" stroke-width="1" fill="none"/>
+                    </svg>
+                </div>
+                <span>Combos</span>
+            </a>
+            <a href="#postres" class="category-item">
+                <div class="category-icon">
+                    <svg viewBox="0 0 40 40">
+                        <path d="M20 34 Q10 26, 10 18 Q10 8, 20 10 Q30 8, 30 18 Q30 26, 20 34" fill="#FF4466"/>
+                        <path d="M20 10 Q18 5, 15 6" stroke="#228B22" stroke-width="2" fill="none"/>
+                        <path d="M20 10 Q22 5, 25 6" stroke="#228B22" stroke-width="2" fill="none"/>
+                        <circle cx="16" cy="18" r="1.5" fill="rgba(255,255,255,0.5)"/>
+                        <circle cx="22" cy="15" r="1.5" fill="rgba(255,255,255,0.5)"/>
+                        <circle cx="18" cy="24" r="1.5" fill="rgba(255,255,255,0.5)"/>
+                    </svg>
+                </div>
+                <span>Postres</span>
+            </a>
+        </section>
+
+        <!-- Lo Más Pedido -->
+        <section class="top-sellers">
+            <div class="section-header">
+                <div class="section-tag">⭐ Favoritos de nuestros clientes</div>
+                <h2 class="section-title">Lo Más Pedido</h2>
+            </div>
+            <div class="sellers-grid">
+
+                <!-- La Pechugona Porky -->
+                <div class="seller-card">
+                    <div class="seller-image seller-image-photo">
+                        <img src="pollo-burger.jpg" alt="La Pechugona Porky"
+                             style="object-position: center 55%;">
+                    </div>
+                    <div class="seller-rating">
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    </div>
+                    <h3 class="seller-name">La Pechugona Porky</h3>
+                    <p class="seller-desc">Doble pollo crispy con tocino</p>
+                    <div class="seller-bottom">
+                        <span class="seller-price">$110</span>
+                        <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                    </div>
+                </div>
+
+                <!-- COSTCO DOGGO -->
+                <div class="seller-card">
+                    <div class="seller-image seller-image-photo">
+                        <img src="hot-dog.jpg" alt="COSTCO DOGGO"
+                             style="object-position: center 70%;">
+                    </div>
+                    <div class="seller-rating">
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    </div>
+                    <h3 class="seller-name">COSTCO DOGGO</h3>
+                    <p class="seller-desc">XXL con jalapeños y Takis</p>
+                    <div class="seller-bottom">
+                        <span class="seller-price">$80</span>
+                        <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                    </div>
+                </div>
+
+                <!-- Boneless -->
+                <div class="seller-card">
+                    <div class="seller-image seller-image-photo">
+                        <img src="wings.jpg" alt="Boneless 250gr"
+                             style="object-position: center 65%;">
+                    </div>
+                    <div class="seller-rating">
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    </div>
+                    <h3 class="seller-name">Boneless 250gr</h3>
+                    <p class="seller-desc">BBQ · Buffalo · Mango Habanero</p>
+                    <div class="seller-bottom">
+                        <span class="seller-price">$150</span>
+                        <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Menú Completo -->
+        <section class="menu-section" id="menu">
+
+            <div class="section-header">
+                <div class="section-tag">Nuestro Menú</div>
+                <h2 class="section-title">Menú Completo</h2>
+            </div>
+
+            <!-- ── HAMBURGUESAS ── -->
+            <div class="menu-category-block" id="burgers">
+                <div class="menu-category-header">
+                    <span class="menu-category-icon">🍔</span>
+                    <h3 class="menu-category-title">Hamburguesas</h3>
+                    <div class="menu-category-line"></div>
+                </div>
+
+                <!-- Sencilla: hero card with real photo -->
+                <div class="hotdog-hero">
+                    <div class="hotdog-hero-img">
+                        <img src="burger.jpg" alt="Hamburguesa Sencilla"
+                             style="object-position: center 60%;">
+                    </div>
+                    <div class="hotdog-hero-content">
+                        <div>
+                            <span class="hotdog-hero-badge">🍔 La Clásica</span>
+                            <h3>Sencilla</h3>
+                            <p>Carne 100% res a la plancha, lechuga fresca, jitomate, cebolla, mostaza y mayonesa en pan con ajonjolí tostado.</p>
+                        </div>
+                        <div class="hotdog-hero-bottom">
+                            <span class="menu-card-price">$65</span>
+                            <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Especial -->
+                <div class="hotdog-list-item">
+                    <div class="hotdog-list-icon">🧀</div>
+                    <div class="hotdog-list-info">
+                        <h4>Especial</h4>
+                        <p>Con queso fundido</p>
+                    </div>
+                    <div class="hotdog-list-right">
+                        <span class="hotdog-list-price">$75</span>
+                        <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                    </div>
+                </div>
+
+                <!-- Doble -->
+                <div class="hotdog-list-item">
+                    <div class="hotdog-list-icon">🍔</div>
+                    <div class="hotdog-list-info">
+                        <h4>Doble</h4>
+                        <p>Doble carne, doble queso</p>
+                    </div>
+                    <div class="hotdog-list-right">
+                        <span class="hotdog-list-price">$90</span>
+                        <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                    </div>
+                </div>
+
+                <!-- Tocino -->
+                <div class="hotdog-list-item">
+                    <div class="hotdog-list-icon">🥓</div>
+                    <div class="hotdog-list-info">
+                        <h4>Tocino</h4>
+                        <p>Con tiras de tocino crujiente</p>
+                    </div>
+                    <div class="hotdog-list-right">
+                        <span class="hotdog-list-price">$90</span>
+                        <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                    </div>
+                </div>
+
+                <!-- Hawallana -->
+                <div class="hotdog-list-item">
+                    <div class="hotdog-list-icon">🍍</div>
+                    <div class="hotdog-list-info">
+                        <h4>Hawallana</h4>
+                        <p>Con piña tropical y queso</p>
+                    </div>
+                    <div class="hotdog-list-right">
+                        <span class="hotdog-list-price">$80</span>
+                        <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── POLLO CRISPY ── -->
+            <div class="menu-category-block" id="pollo">
+                <div class="menu-category-header">
+                    <span class="menu-category-icon">🍗</span>
+                    <h3 class="menu-category-title">Burgers de Pollo Crispy</h3>
+                    <div class="menu-category-line"></div>
+                </div>
+
+                <!-- La Pechugona Porky: hero card with real photo -->
+                <div class="hotdog-hero">
+                    <div class="hotdog-hero-img">
+                        <img src="pollo-burger.jpg" alt="La Pechugona Porky"
+                             style="object-position: center 55%;">
+                    </div>
+                    <div class="hotdog-hero-content">
+                        <div>
+                            <span class="hotdog-hero-badge">🥓 Con Tocino · Premium</span>
+                            <h3>La Pechugona Porky</h3>
+                            <p>Doble pechuga de pollo crispy, tocino crujiente, lechuga, mayonesa y salsa BBQ en pan con ajonjolí. ¡La más generosa de todas!</p>
+                        </div>
+                        <div class="hotdog-hero-bottom">
+                            <span class="menu-card-price">$110</span>
+                            <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- La Pechugona -->
+                <div class="hotdog-list-item">
+                    <div class="hotdog-list-icon">🍗</div>
+                    <div class="hotdog-list-info">
+                        <h4>La Pechugona</h4>
+                        <p>Pollo crispy, lechuga y tomate</p>
+                    </div>
+                    <div class="hotdog-list-right">
+                        <span class="hotdog-list-price">$90</span>
+                        <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                    </div>
+                </div>
+
+                <!-- La Pechugona Esp. -->
+                <div class="hotdog-list-item">
+                    <div class="hotdog-list-icon">⭐</div>
+                    <div class="hotdog-list-info">
+                        <h4>La Pechugona Esp.</h4>
+                        <p>Con aderezo especial de la casa</p>
+                    </div>
+                    <div class="hotdog-list-right">
+                        <span class="hotdog-list-price">$100</span>
+                        <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── HOT DOGS ── -->
+            <div class="menu-category-block" id="hotdogs">
+                <div class="menu-category-header">
+                    <span class="menu-category-icon">🌭</span>
+                    <h3 class="menu-category-title">Hot Dogs</h3>
+                    <div class="menu-category-line"></div>
+                </div>
+
+                <!-- COSTCO DOGGO: hero card with real photo -->
+                <div class="hotdog-hero">
+                    <div class="hotdog-hero-img">
+                        <img src="hot-dog.jpg" alt="COSTCO DOGGO">
+                    </div>
+                    <div class="hotdog-hero-content">
+                        <div>
+                            <span class="hotdog-hero-badge">⭐ XXL · Lo Más Pedido</span>
+                            <h3>COSTCO DOGGO</h3>
+                            <p>Salchicha jumbo en pan con ajonjolí, cubierta con mayonesa, mostaza, catsup, cebolla picada, jalapeños y Takis triturados. ¡El rey del menú!</p>
+                        </div>
+                        <div class="hotdog-hero-bottom">
+                            <span class="menu-card-price">$80</span>
+                            <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doggito: compact list item -->
+                <div class="hotdog-list-item">
+                    <div class="hotdog-list-icon">🌭</div>
+                    <div class="hotdog-list-info">
+                        <h4>Doggito</h4>
+                        <p>Hot dog clásico en pan suave</p>
+                    </div>
+                    <div class="hotdog-list-right">
+                        <span class="hotdog-list-price">$45</span>
+                        <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── PAPAS ── -->
+            <div class="menu-category-block" id="papas">
+                <div class="menu-category-header">
+                    <span class="menu-category-icon">🍟</span>
+                    <h3 class="menu-category-title">Papas</h3>
+                    <div class="menu-category-line"></div>
+                </div>
+
+                <!-- SalchiPapas: hero card with real photo -->
+                <div class="hotdog-hero">
+                    <div class="hotdog-hero-img">
+                        <img src="salchipapas.jpg" alt="SalchiPapas"
+                             style="object-position: center 65%;">
+                    </div>
+                    <div class="hotdog-hero-content">
+                        <div>
+                            <span class="hotdog-hero-badge">🍟 La Favorita</span>
+                            <h3>SalchiPapas</h3>
+                            <p>Papas fritas crujientes con trozos de salchicha, queso cheddar derretido y queso en polvo. ¡El antojo perfecto!</p>
+                        </div>
+                        <div class="hotdog-hero-bottom">
+                            <span class="menu-card-price">$70</span>
+                            <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Papas Fritas -->
+                <div class="hotdog-list-item">
+                    <div class="hotdog-list-icon">🍟</div>
+                    <div class="hotdog-list-info">
+                        <h4>Papas Fritas</h4>
+                        <p>Crujientes y doraditas</p>
+                    </div>
+                    <div class="hotdog-list-right">
+                        <span class="hotdog-list-price">$60</span>
+                        <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                    </div>
+                </div>
+
+                <!-- Papas c/Queso -->
+                <div class="hotdog-list-item">
+                    <div class="hotdog-list-icon">🧀</div>
+                    <div class="hotdog-list-info">
+                        <h4>Papas c/Queso</h4>
+                        <p>Con queso cheddar derretido</p>
+                    </div>
+                    <div class="hotdog-list-right">
+                        <span class="hotdog-list-price">$65</span>
+                        <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── BONELESS ── -->
+            <div class="menu-category-block" id="boneless">
+                <div class="menu-category-header">
+                    <span class="menu-category-icon">🍗</span>
+                    <h3 class="menu-category-title">Boneless</h3>
+                    <div class="menu-category-line"></div>
+                </div>
+
+                <!-- Boneless: hero card with real photo -->
+                <div class="hotdog-hero">
+                    <div class="hotdog-hero-img">
+                        <img src="wings.jpg" alt="Boneless 250gr"
+                             style="object-position: center 65%;">
+                    </div>
+                    <div class="hotdog-hero-content">
+                        <div>
+                            <span class="hotdog-hero-badge">🔥 250gr · Elige tu Sabor</span>
+                            <h3>Boneless 250gr</h3>
+                            <p>Alitas de pollo bañadas en tu salsa favorita: BBQ ahumado, Buffalo picoso o Mango Habanero. Crujientes por fuera, jugosas por dentro.</p>
+                        </div>
+                        <div class="hotdog-hero-bottom">
+                            <span class="menu-card-price">$150</span>
+                            <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── COMBOS ── -->
+            <div class="menu-category-block" id="combos">
+                <div class="menu-category-header">
+                    <span class="menu-category-icon">🎁</span>
+                    <h3 class="menu-category-title">Combos</h3>
+                    <div class="menu-category-line"></div>
+                </div>
+
+                <!-- Combo Gisas: hero card with real photo -->
+                <div class="hotdog-hero">
+                    <div class="hotdog-hero-img">
+                        <img src="pollo-combo.jpg" alt="Combo Gisas"
+                             style="object-position: center 60%;">
+                    </div>
+                    <div class="hotdog-hero-content">
+                        <div>
+                            <span class="hotdog-hero-badge">🎁 El Combo Completo</span>
+                            <h3>Combo Gisas</h3>
+                            <p>Pechugona Crispy + Doggito + Papas Fritas + Refresco 600ml. Todo lo que necesitas en una sola orden.</p>
+                        </div>
+                        <div class="hotdog-hero-bottom">
+                            <span class="menu-card-price">$150</span>
+                            <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Combo Isa -->
+                <div class="hotdog-list-item">
+                    <div class="hotdog-list-icon">🍔</div>
+                    <div class="hotdog-list-info">
+                        <h4>Combo Isa</h4>
+                        <p>Burger Sencilla + Papas Fritas</p>
+                    </div>
+                    <div class="hotdog-list-right">
+                        <span class="hotdog-list-price">$115</span>
+                        <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                    </div>
+                </div>
+
+                <!-- Combo Familiar -->
+                <div class="hotdog-list-item">
+                    <div class="hotdog-list-icon">👨‍👩‍👧</div>
+                    <div class="hotdog-list-info">
+                        <h4>Combo Familiar</h4>
+                        <p>2 Sencillas + 2 Doggitos + Refresco 2L</p>
+                    </div>
+                    <div class="hotdog-list-right">
+                        <span class="hotdog-list-price">$210</span>
+                        <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── POSTRES ── -->
+            <div class="menu-category-block" id="postres">
+                <div class="menu-category-header">
+                    <span class="menu-category-icon">🍓</span>
+                    <h3 class="menu-category-title">Postres</h3>
+                    <div class="menu-category-line"></div>
+                </div>
+
+                <!-- Fresas con Crema: hero card with real photo -->
+                <div class="hotdog-hero">
+                    <div class="hotdog-hero-img">
+                        <img src="fresas-crema.jpg" alt="Fresas con Crema Natural"
+                             style="object-position: center 40%;">
+                    </div>
+                    <div class="hotdog-hero-content">
+                        <div>
+                            <span class="hotdog-hero-badge">🍓 Postre Especial</span>
+                            <h3>Fresas con Crema Natural</h3>
+                            <p>Fresas frescas bañadas en crema natural y chantilly, coronadas con una fresa entera y chocolate. El cierre perfecto para tu antojo.</p>
+                        </div>
+                        <div class="hotdog-hero-bottom">
+                            <span class="menu-card-price">$70</span>
+                            <a href="tel:6565897227" class="seller-order-btn">Pedir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Información / Contacto -->
+        <section class="info-section" id="info">
+            <div class="info-title">
+                <h2>Visítanos</h2>
+                <p>Te esperamos con mucho gusto</p>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
+                    <h3>Dirección</h3>
+                    <p>826 Saltillo<br>Col. Ex Hipódromo<br>Entre 2 de Abril y Plan de Ayala</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                    </div>
+                    <h3>Horario</h3>
+                    <p>Jueves a Domingo<br>4:00 PM – 10:00 PM</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    </div>
+                    <h3>Teléfono</h3>
+                    <p><a href="tel:6565897227">656-589-7227</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p style="margin-bottom:8px; font-size:14px; opacity:0.95;">
+                🏠 Contamos con local establecido
+            </p>
+            <p style="margin-bottom:10px; font-size:13px; opacity:0.9;">
+                📲 Encuéntranos en Rappi como
+                <strong style="color:#FF6B35;">antojitos gisa</strong>
+            </p>
+            <p>© <span id="year"></span> Antojitos Gisa &nbsp;·&nbsp; Todos los precios en pesos mexicanos (MXN)</p>
+        </footer>
+
+    </main>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
